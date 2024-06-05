@@ -1,6 +1,12 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../UserContext'
+
+
 
 function Navbar() {
+  const {user} = useContext(UserContext)
+
   return (
     <div>
         <header className='flex p-4 justify-between items-center border-b-2'>
@@ -25,11 +31,19 @@ function Navbar() {
           </button>
 
         </div>
+
+        
+
         <div className='flex border bordger-gray-300 rounded-full items-center gap-2 px-4 py-2 shadow-md shadow-gray-300'>
           <Link to={"/login"}><div>Login</div></Link>
-          
+          {!!user && (
+          <div>
+            {user.name}
+          </div>
+        )}
           <div className='flex border-l-2 h-7'></div>
           <Link to={"/register"}>Sign Up</Link>
+          
         </div>
       </header>
     </div>
