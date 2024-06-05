@@ -1,10 +1,9 @@
-import Navbar from './Navbar'
+import { Outlet } from 'react-router-dom'
 
 function IndexPage() {
   return (
     <div>
-        <Navbar ></Navbar>
-        
+        <Outlet />
     </div>
   )
 }
